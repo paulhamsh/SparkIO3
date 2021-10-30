@@ -21,7 +21,7 @@ In loop:
 Process messages from the app and the amp:
 
 ```
-sp_process();
+spark_process();
 app_process();
 ```
 
@@ -29,7 +29,7 @@ Get messages from app and amp:
 
 ```
 app_msg_in.get_message(&cmdsub, &msg, &preset);
-sp_msg_in.get_message(&cmdsub, &msg, &preset);
+spark_msg_in.get_message(&cmdsub, &msg, &preset);
 ```
 
 Send messages to app and amp (some examples):
@@ -37,7 +37,7 @@ Send messages to app and amp (some examples):
 ```
 app_msg_out.send_firmware_version(0x01050466);  
 app_msg_out.send_preset_number(0x00, 0x01);
-sp_msg_out.create_preset(&silvership);
+spark_msg_out.create_preset(&silvership);
 ```
 
 Full message set is:
