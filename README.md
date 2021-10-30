@@ -28,16 +28,16 @@ app_process();
 Get messages from app and amp:
 
 ```
-app_min.get_message(&cmdsub, &msg, &preset);
-sp_min.get_message(&cmdsub, &msg, &preset);
+app_msg_in.get_message(&cmdsub, &msg, &preset);
+sp_msg_in.get_message(&cmdsub, &msg, &preset);
 ```
 
 Send messages to app and amp (some examples):
 
 ```
-app_mout.send_firmware_version(0x01050466);  
-app_mout.send_preset_number(0x00, 0x01);
-sp_mout.create_preset(&silvership);
+app_msg_out.send_firmware_version(0x01050466);  
+app_msg_out.send_preset_number(0x00, 0x01);
+sp_msg_out.create_preset(&silvership);
 ```
 
 Full message set is:
