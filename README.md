@@ -13,7 +13,7 @@ connect_to_all();
 Start the Spark library:
 
 ```
-SparkStart(false);
+spark_start(false);
 ```
 
 In loop:
