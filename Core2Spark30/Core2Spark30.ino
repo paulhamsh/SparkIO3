@@ -1,4 +1,3 @@
-
 #define M5_BRD
 
 #ifdef M5_BRD
@@ -52,6 +51,8 @@ void setup() {
   curr_preset = 0;
   
   connect_to_all(); 
+
+  spark_start(false);
 }
 
 
@@ -67,19 +68,17 @@ M5.update();
     Serial.println("BUTTON PRESS");
 
 //    sp_mout.change_hardware_preset(curr_preset);
-    app_mout.change_hardware_preset(curr_preset);
+    app_msg_out.change_hardware_preset(curr_preset);
     curr_preset++;
     if (curr_preset > 3) curr_preset = 0;
   }
 #endif
 
-SparkStart(false);
-
 //  sp_process();
   app_process();
 
 /*
-  if (sp_min.get_message(&cmdsub, &msg, &preset)) { //there is something there
+  if (sp_msg_in.get_message(&cmdsub, &msg, &preset)) { //there is something there
     Serial.print("From Spark: ");
     Serial.println(cmdsub, HEX);
     switch (cmdsub) {
@@ -90,7 +89,7 @@ SparkStart(false);
     }
   }
 */  
-  if (app_min.get_message(&cmdsub, &msg, &preset)) { //there is something there   
+  if (app_msg_in.get_message(&cmdsub, &msg, &preset)) { //there is something there   
     Serial.print("From App: ");
     Serial.println(cmdsub, HEX);
 
@@ -107,27 +106,27 @@ SparkStart(false);
         break;
       case 0x022f:
         Serial.println("Requested Firmware");
-        app_mout.send_firmware_version(0x01050466);  
+        app_msg_out.send_firmware_version(0x01050466);  
         break;
       case 0x022a:
         Serial.println("Requested mystery info");
-        app_mout.send_0x022a_info(0x7D, 0x87, 0x07, 0x58);       
+        app_msg_out.send_0x022a_info(0x7D, 0x87, 0x07, 0x58);       
         break;
       case 0x0210:
         Serial.println("Requested hardware preset number");
-        app_mout.send_preset_number(0x00, 0x01);
+        app_msg_out.send_preset_number(0x00, 0x01);
         break;
      case 0x0223:
-        app_mout.send_serial_number("S040C205A64");
+        app_msg_out.send_serial_number("S040C205A64");
         break;
      case 0x0170:
         Serial.println("App sent key");
-        app_mout.send_key_ack();
+        app_msg_out.send_key_ack();
         break;
         
      case 0x0201:
         Serial.println("Requested preset details");
-        app_mout.create_preset(&silvership);        
+        app_msg_out.create_preset(&silvership);        
         break;
     }
   }

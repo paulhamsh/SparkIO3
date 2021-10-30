@@ -261,7 +261,7 @@ class AppBlockOut: public BlockOut
 /////////////
 
 
-    void SparkStart(bool passthru);
+    void spark_start(bool passthru);
 
     void sp_process();
 
@@ -274,9 +274,9 @@ class AppBlockOut: public BlockOut
     RingBuffer sp_in_chunk;
     SparkChunkIn sp_cin;
     RingBuffer sp_in_message;
-    SparkMessageIn sp_min;
+    SparkMessageIn sp_msg_in;
 
-    SparkMessageOut sp_mout;
+    SparkMessageOut sp_msg_out;
     RingBuffer sp_out_message;
     SparkChunkOut sp_cout;
     RingBuffer sp_out_chunk;
@@ -294,9 +294,9 @@ class AppBlockOut: public BlockOut
     RingBuffer app_in_chunk;
     AppChunkIn app_cin;
     RingBuffer app_in_message;
-    AppMessageIn app_min;
+    AppMessageIn app_msg_in;
 
-    AppMessageOut app_mout;
+    AppMessageOut app_msg_out;
     RingBuffer app_out_message;
     AppChunkOut app_cout;
     RingBuffer app_out_chunk;

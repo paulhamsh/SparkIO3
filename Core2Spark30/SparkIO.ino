@@ -85,18 +85,18 @@ void bytes_to_uint(uint8_t h, uint8_t l,unsigned int *i) {
 uint8_t chunk_header_from_spark[16]{0x01, 0xfe, 0x00, 0x00, 0x41, 0xff, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
 uint8_t chunk_header_to_spark[16]  {0x01, 0xfe, 0x00, 0x00, 0x53, 0xfe, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
 
-void SparkStart(bool passthru) {
+void spark_start(bool passthru) {
   sp_bin.set(passthru, &sp_in_chunk, chunk_header_from_spark);
   app_bin.set(passthru, &app_in_chunk, chunk_header_to_spark);
 
   sp_cin.set(&sp_in_chunk, &sp_in_message, &sp_ok_to_send, &sp_rec_seq);
   app_cin.set(&app_in_chunk, &app_in_message, &app_ok_to_send, &app_rec_seq);
 
-  sp_min.set(&sp_in_message);
-  app_min.set(&app_in_message);
+  sp_msg_in.set(&sp_in_message);
+  app_msg_in.set(&app_in_message);
 
-  sp_mout.set(&sp_out_message);
-  app_mout.set(&app_out_message);
+  sp_msg_out.set(&sp_out_message);
+  app_msg_out.set(&app_out_message);
 
   sp_cout.set(&sp_out_chunk, &sp_out_message, &sp_rec_seq);
   app_cout.set(&app_out_chunk, &app_out_message, &app_rec_seq);
