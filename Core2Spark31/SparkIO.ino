@@ -1127,7 +1127,7 @@ void ChunkOut::process() {
      out_chunk->add(0xf7);
     }
     out_chunk->commit();
-    out_chunk->dump3();
+//    out_chunk->dump3();
   }
 }
 
