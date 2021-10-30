@@ -67,18 +67,18 @@ M5.update();
   if (M5.BtnA.wasPressed() ) {
     Serial.println("BUTTON PRESS");
 
-//    sp_mout.change_hardware_preset(curr_preset);
+//    spark_mout.change_hardware_preset(curr_preset);
     app_msg_out.change_hardware_preset(curr_preset);
     curr_preset++;
     if (curr_preset > 3) curr_preset = 0;
   }
 #endif
 
-//  sp_process();
+//  spark_process();
   app_process();
 
 /*
-  if (sp_msg_in.get_message(&cmdsub, &msg, &preset)) { //there is something there
+  if (spark_msg_in.get_message(&cmdsub, &msg, &preset)) { //there is something there
     Serial.print("From Spark: ");
     Serial.println(cmdsub, HEX);
     switch (cmdsub) {

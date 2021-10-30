@@ -92,10 +92,10 @@ void spark_start(bool passthru) {
   sp_cin.set(&sp_in_chunk, &sp_in_message, &sp_ok_to_send, &sp_rec_seq);
   app_cin.set(&app_in_chunk, &app_in_message, &app_ok_to_send, &app_rec_seq);
 
-  sp_msg_in.set(&sp_in_message);
+  spark_msg_in.set(&sp_in_message);
   app_msg_in.set(&app_in_message);
 
-  sp_msg_out.set(&sp_out_message);
+  spark_msg_out.set(&sp_out_message);
   app_msg_out.set(&app_out_message);
 
   sp_cout.set(&sp_out_chunk, &sp_out_message, &sp_rec_seq);
@@ -109,7 +109,7 @@ void spark_start(bool passthru) {
 // Main processing routine
 //
 
-void sp_process() 
+void spark_process() 
 {
   // process inputs
   sp_bin.process();

@@ -263,10 +263,10 @@ class AppBlockOut: public BlockOut
 
     void spark_start(bool passthru);
 
-    void sp_process();
+    void spark_process();
 
     // processing received messages    
-//    bool sp_get_message(unsigned int *cmdsub, SparkMessage *msg, SparkPreset *preset);
+//    bool spark_get_message(unsigned int *cmdsub, SparkMessage *msg, SparkPreset *preset);
 
     // sending data
 
@@ -274,9 +274,9 @@ class AppBlockOut: public BlockOut
     RingBuffer sp_in_chunk;
     SparkChunkIn sp_cin;
     RingBuffer sp_in_message;
-    SparkMessageIn sp_msg_in;
+    SparkMessageIn spark_msg_in;
 
-    SparkMessageOut sp_msg_out;
+    SparkMessageOut spark_msg_out;
     RingBuffer sp_out_message;
     SparkChunkOut sp_cout;
     RingBuffer sp_out_chunk;
