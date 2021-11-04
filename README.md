@@ -21,6 +21,8 @@ In loop:
 Process messages from the app and the amp:
 
 ```
+connect_spark();  // will try to reconnect if the Spark had disconnected - without a new bluetooth scan()
+
 spark_process();
 app_process();
 ```
