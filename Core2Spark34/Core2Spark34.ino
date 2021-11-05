@@ -1,6 +1,10 @@
 #include "Spark.h"
 #include "SparkIO.h"
 
+unsigned int cmdsub;
+SparkMessage msg;
+SparkPreset preset;
+
 void setup() {
   Serial.begin(115200);
   
