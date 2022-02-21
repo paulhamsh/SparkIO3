@@ -1,4 +1,8 @@
 # SparkIO3
+
+##Update - see SparkMIDI for the latest version of the library!   
+
+
 Latest spark library rationalised for a single device
 
 With changes to the interface
